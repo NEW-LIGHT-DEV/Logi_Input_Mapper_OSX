@@ -115,17 +115,20 @@ func toggleApplication(bundleIdentifier: String) {
 
 /// Sends a keyboard shortcut (key code with modifiers)
 func sendKeyCombo(_ combo: KeyCombo) {
-    let source = CGEventSource(stateID: .hidSystemState)
+    let source = CGEventSource(stateID: .combinedSessionState)
 
     // Key down
     if let keyDown = CGEvent(keyboardEventSource: source, virtualKey: combo.keyCode, keyDown: true) {
         keyDown.flags = combo.modifiers
-        keyDown.post(tap: .cgSessionEventTap)
+        keyDown.post(tap: .cghidEventTap)
     }
+
+    // Small delay to ensure the key down is registered
+    usleep(10000)  // 10ms
 
     // Key up
     if let keyUp = CGEvent(keyboardEventSource: source, virtualKey: combo.keyCode, keyDown: false) {
         keyUp.flags = combo.modifiers
-        keyUp.post(tap: .cgSessionEventTap)
+        keyUp.post(tap: .cghidEventTap)
     }
 }
