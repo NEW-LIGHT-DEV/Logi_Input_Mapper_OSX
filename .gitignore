@@ -1,0 +1,23 @@
+# Build artifacts
+.build/
+InputRemapper.app/
+
+# Xcode
+*.xcodeproj/
+*.xcworkspace/
+xcuserdata/
+DerivedData/
+
+# macOS
+.DS_Store
+*.swp
+*~
+
+# Logs
+*.log
+*.err
+
+# IDE
+.idea/
+.vscode/
+*.sublime-*
