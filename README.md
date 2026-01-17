@@ -40,7 +40,7 @@ Should work with other mice/keyboards - use `make run-debug` to find your button
 
 ```bash
 git clone https://github.com/NEW-LIGHT-DEV/Logi_Input_Mapper_OSX.git
-cd InputRemapper
+cd Logi_Input_Mapper_OSX
 make install
 ```
 
